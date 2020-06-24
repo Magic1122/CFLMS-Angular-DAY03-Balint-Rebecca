@@ -1,0 +1,13 @@
+<div *ngFor="let cartItem of cartItems">
+  <p>{{ cartItem.name }} Price: {{ cartItem.price }}</p>
+</div>
+
+
+<p *ngIf="cartItems.length === 0">Your cart is empty</p>
+<form *ngIf="cartItems.length !== 0" [formGroup]="checkoutForm">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" formControlName="name">
+  <label for="email">Email: </label>
+  <input type="text" name="email" id="email" formControlName="email">
+  <button class="btn btn-warning" (click)="onFormCheckOut()">Check out</button>
+</form>
